@@ -4,12 +4,14 @@
 #include <allegro5/allegro5.h>
 #include "ControllerInterface.h"
 #include "SpriteContainer.h"
+#include "TiledBackground.h"
 
 class GameController : public ControllerInterface {
 
 	private:
 		string filename;
 		SpriteContainer* spriteSheet;
+		TiledBackground* background;
 		int frameIndex;
 		bool needsRefresh;
 		bool displayChanged;

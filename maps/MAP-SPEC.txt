@@ -1,0 +1,9 @@
+MAP SPEC, V1
+	Maps first line is in the format
+	X Y
+	where X and Y are integers, they define the 
+	width and height of the map respectively.
+	Following will be Y numbers of lines each 
+	containing X amount of numbers seperated with a
+	comma. Each number will represent a index into
+	the tile sprite sheet.

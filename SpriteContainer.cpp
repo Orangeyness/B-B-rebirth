@@ -25,9 +25,8 @@ SpriteContainer::SpriteContainer(string filepath) {
 		frameCount[i] = g;
 		frames[i] = new ALLEGRO_BITMAP*[frameCount[i]];
 		
-		currentY ++;
 		for (int j = 0; j < frameCount[i]; j++) {
-			frames[i][j] = al_create_sub_bitmap(spriteSheet, (1 + width) * j + 1, currentY, width, height);
+			frames[i][j] = al_create_sub_bitmap(spriteSheet, width * j + 1, currentY, width, height);
 			if (frames[i] == NULL) throw "SPRITE CONTAINER: spritesheet does not match spec. (" + filepath + ").";
 			}
 

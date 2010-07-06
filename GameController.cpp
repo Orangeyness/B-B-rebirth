@@ -16,10 +16,12 @@ GameController::GameController(string fname) {
 
 GameController::~GameController() {
 	spriteSheet->unlink();
+	delete background;
 	}
 
 void GameController::iniController() {
 	spriteSheet = SpriteContainer::loadSpriteSheet(filename);
+	background = new TiledBackground("SpriteSheets/tiles.png");
 	}
 
 ControllerReturn* GameController::runEventHandler(ALLEGRO_EVENT_QUEUE *queue) {
@@ -50,8 +52,9 @@ ControllerReturn* GameController::runEventHandler(ALLEGRO_EVENT_QUEUE *queue) {
 
 void GameController::drawFrame() {
 	frameIndex ++;
-	al_clear_to_color(al_map_rgb(255, 255, 255));
-	
+
+	background->draw(0, 0, 0, 0, getDisplayWidth(), getDisplayHeight());
+
 	int animationCount = spriteSheet->getAnimationCount();
 	
 	SpriteContainer* s = SpriteContainer::loadSpriteSheet(spriteSheet->getFileName());
